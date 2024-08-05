@@ -1,0 +1,26 @@
+<div class="header">
+    <div class="navbar">
+        <h1><a routerLink="/home">{{'Books-App' | uppercase}}</a></h1>
+
+        <div class="searchBar">
+            <input #searchInput type="text" placeholder="Search Book by title">
+            <button (click)="submitSearch(searchInput.value)">Search</button>
+        </div>
+
+        <div [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'">
+           
+            <li><a routerLink="/">SignUp/Login</a></li>
+            <li><a>{{userName | titlecase}}</a></li> 
+        </ul>
+
+        
+            <ul *ngSwitchCase="'loggedIn'">
+                <li><a routerLink="/wishlist">Wishlist</a></li>
+                <li *ngIf="dataInLocalStorage"><a (click)="logout()">Logout</a></li>
+                <li><a>{{userName | titlecase}}</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>

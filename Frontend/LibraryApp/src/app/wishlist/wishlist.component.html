@@ -1,0 +1,34 @@
+<h1>User Wishlist</h1>
+<div class="wishlist">
+
+    <table>
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Language</th>
+                <th>Page Count</th>
+                <th>Summary</th>
+                <th>Copyright</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of wishlist">
+                <td>{{item.canonical_isbn}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.language}}</td>
+                <td>{{item.page_count}}</td>
+                <td>{{item.summary}}</td>
+                <td>{{item.copyright}}</td>
+                <td>
+                    <fa-icon class="icon" (click)="deleteProduct(item.wishlistId)" [icon]="deleteIcon" ></fa-icon>
+                </td>
+                
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

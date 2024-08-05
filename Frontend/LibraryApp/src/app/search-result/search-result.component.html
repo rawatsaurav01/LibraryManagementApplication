@@ -1,0 +1,26 @@
+<div class="row search-item" *ngFor="let item of searchResult">
+    
+    <div class="col-sm-3">
+    <a routerLink="#">  
+        <img src="../../assets/image/vecteezy_old-vintage-book-clipart-design-illustration_9399398.png">
+    </a>
+    </div>
+    <div class="col-sm-8 details">
+        <a routerLink="#">  
+            <h6>{{item.title}}</h6>
+        </a>
+        <p><b>isbn : {{item.canonical_isbn}}</b></p>
+        <p><span>Copyright : {{item.copyright}}</span>
+            <span>Language : {{item.language}}</span></p>
+        <p>Page Count : {{item.page_count}}</p>
+        <div class="book-details-footer">
+            <a routerLink="/book-detail" (click)="viewDetails(item)">View Details </a>
+            <a routerLink="#" (click)="addBookToWishlist(item)">Add to Wishlist</a>
+        </div>
+    </div>
+    
+
+   
+
+</div>
+

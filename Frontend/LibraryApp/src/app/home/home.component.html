@@ -1,0 +1,28 @@
+<div class="book-list-wrapper">
+
+    
+
+
+    <h1>Trending Books</h1>
+    <div class="row" >
+        <div class="col-sm-3" *ngFor="let book of allBooks" >
+            <div class="product-item" >
+                <img src="../../assets/image/vecteezy_old-vintage-book-clipart-design-illustration_9399398.png"/>
+            <hr>
+            <div class="book-details">
+                <h6 class="name-head">{{book.title}}</h6>
+                <div class="book-isbn">
+                    <h6 class="price">isbn : {{book.canonical_isbn}}</h6>
+                </div>
+            </div>
+            <div class="book-details-footer">
+                <a routerLink="/book-detail" (click)="viewDetails(book)">View Details </a>
+                <a routerLink="#" (click)="addBookToWishlist(book)">Add to Wishlist</a>
+            </div>
+        </div>
+        </div>
+        <!-------------->
+
+    
+    </div>
+</div>

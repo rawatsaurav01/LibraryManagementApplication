@@ -1,0 +1,114 @@
+<div class="auth-page">
+
+<div class="auth">
+    <div *ngIf="!showLogin" class="sign-up-form">
+        <h1>Sign-Up</h1>
+        <hr class="new1">
+
+        <form class="common-form" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+            <div>
+                <label class="form-label" for="name">Name :</label>
+                <input class="form-label" class="form-input" type="text" id="name" formControlName="name">
+                <div class="error-message" *ngIf="signUpForm.get('name')?.hasError('required') && signUpForm.get('name')?.touched">
+                  First Name is required.
+                </div>
+                <div class="error-message" *ngIf="signUpForm.get('name')?.hasError('textOnly') && signUpForm.get('name')?.touched">
+                  First Name should contain only letters.
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label" for="email">Email :</label>
+                <input class="form-input" type="email" id="email" formControlName="email">
+                <div class="error-message" *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched">
+                  Email is required.
+                </div> 
+                 <div class="error-message" *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched">
+                  Invalid email address.
+                </div> 
+              </div>
+
+              <div>
+                <label class="form-label"  for="password">Password :</label>
+                <input class="form-input" type="password" id="password" formControlName="password">
+                <div class="error-message" *ngIf="signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched">
+                  Password is required.
+                </div>
+                <div class="error-message" *ngIf="signUpForm.get('password')?.hasError('minlength') && signUpForm.get('password')?.touched">
+                  Password should be at least 8 characters.
+                </div>
+                <div class="error-message" *ngIf="signUpForm.get('password')?.hasError('uppercase') && signUpForm.get('password')?.touched">
+                  Password should contain at least one uppercase letter.
+                </div>
+                <div class="error-message" *ngIf="signUpForm.get('password')?.hasError('specialCharacter') && signUpForm.get('password')?.touched">
+                  Password should contain at least one special character.
+                </div>
+                </div>
+         
+           
+          
+           
+          
+            <div>
+              <button type="submit" class="form-button"  [disabled]="!signUpForm.valid" >SignUp</button>
+            </div>
+
+            <a class="auth-toggle-link" (click)="openLogin()">Already Have an Account? <i style="color: rgb(221, 255, 0);cursor: pointer;"><u>Click to Login</u></i></a>
+       
+          </form>
+
+    </div>
+
+    <div *ngIf="showLogin" class="login-form" >
+        <h1>LOGIN</h1>
+        <hr class="new1">
+        
+        
+        <form class="common-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <div class="imgcontainer">
+            <img src="../../assets/image/img_avatar2.png" alt="Avatar" class="avatar">
+          </div>
+         
+            <div>
+              <label class="form-label" for="email">Email :</label>
+              <input class="form-input" type="email" id="email" formControlName="email">
+              <div class="error-message" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+                Email is required.
+              </div> 
+               <div class="error-message" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+                Invalid email address.
+              </div> 
+            </div>
+          
+            <div>
+              <label class="form-label"  for="password">Password :</label>
+              <input class="form-input" type="password" id="password" formControlName="password">
+              <div class="error-message" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                Password is required.
+              </div>
+              <div class="error-message" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+                Password should be at least 8 characters.
+              </div>
+              <div class="error-message" *ngIf="loginForm.get('password')?.hasError('uppercase') && loginForm.get('password')?.touched">
+                Password should contain at least one uppercase letter.
+              </div>
+              <div class="error-message" *ngIf="loginForm.get('password')?.hasError('specialCharacter') && loginForm.get('password')?.touched">
+                Password should contain at least one special character.
+              </div>
+              </div>
+          
+            <div>
+              <button type="submit" class="form-button"  [disabled]="!loginForm.valid" >Submit</button>
+            </div>
+
+            <a class="auth-toggle-link" (click)="openSignUp()"> Don't have an Account? <i style="color: rgb(221, 255, 0); cursor: pointer;"><u>Click to Sign-Up</u></i></a>
+           
+          </form>
+
+    </div>
+</div> 
+  
+</div>
+
+
